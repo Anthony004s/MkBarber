@@ -489,7 +489,7 @@ function nextDays(n){
 }
 function serviceAvailableOnDate(svc, iso){
   if(!svc.promoOnly) return true;
-  const day = new Date(iso+'T12:00:00').getDay(); // 3 = Wednesday
+  const day = new Date(iso+'T10:00:00').getDay(); // 3 = Wednesday
   return day === 3;
 }
 
