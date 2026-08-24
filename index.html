@@ -373,10 +373,10 @@ async function seedIfNeeded(){
   if(!services){
     services = [
       {id:uid(), name:'Corte de Cabelo', description:'Corte tradicional com acabamento na navalha.', price:40, duration:30, active:true, promoOnly:false},
-      {id:uid(), name:'Degradê', description:'Corte degradê moderno, estilo urbano.', price:45, duration:40, active:true, promoOnly:false},
+      {id:uid(), name:'Sobrancelha', description:'Sobrancelha feita com cuidado e maestria.', price:15, duration:5, active:true, promoOnly:false},
       {id:uid(), name:'Barba', description:'Barba modelada com toalha quente e navalha.', price:30, duration:20, active:true, promoOnly:false},
       {id:uid(), name:'Barba + Cabelo', description:'Combo completo: corte e barba na régua.', price:65, duration:50, active:true, promoOnly:false},
-      {id:uid(), name:'Corte Promocional', description:'Corte especial com preço promocional — disponível somente às quartas-feiras.', price:25, duration:30, active:true, promoOnly:true},
+      {id:uid(), name:'Corte Promocional', description:'Corte especial com preço promocional — disponível somente às quartas-feiras.', price:35, duration:30, active:true, promoOnly:true},
     ];
     await storeSet('services:list', services, true);
   }
@@ -489,7 +489,7 @@ function nextDays(n){
 }
 function serviceAvailableOnDate(svc, iso){
   if(!svc.promoOnly) return true;
-  const day = new Date(iso+'T10:00:00').getDay(); // 3 = Wednesday
+  const day = new Date(iso+'T12:00:00').getDay(); // 3 = Wednesday
   return day === 3;
 }
 
